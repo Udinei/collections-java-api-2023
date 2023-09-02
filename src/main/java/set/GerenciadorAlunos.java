@@ -51,7 +51,7 @@ public class GerenciadorAlunos {
         ga.adicionarAluno("Celia", 2L, 9.0);
         ga.adicionarAluno("Beatriz", 3L, 9.1);
         ga.adicionarAluno("Alex", 1L, 9.2);
-        ga.adicionarAluno("Neia x", 4L, 9.2);
+        ga.adicionarAluno("Alex", 4L, 9.2);
 
 
         ga.removerAluno(4l);
