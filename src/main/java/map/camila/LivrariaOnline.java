@@ -92,6 +92,11 @@ public class LivrariaOnline {
 
     public static void main(String[] args) {
         LivrariaOnline livrariaOnline = new LivrariaOnline();
+
+        Set<String> coresDaBandeiraDoBrasil = new TreeSet<>(Arrays.asList("verde", "amarelo", "azul", "branco"));
+         System.out.println(coresDaBandeiraDoBrasil);
+        List<Character> consoantesMeuNome = Arrays.asList('c', 'm', 'l', 'c', 'v', 'l', 'c', 'n', 't');
+        System.out.println(consoantesMeuNome);
         // Adiciona os livros à livraria online
         livrariaOnline.adicionarLivro("https://amzn.to/3EclT8Z", new Livro("1984", "George Orwell", 50d));
         livrariaOnline.adicionarLivro("https://amzn.to/47Umiun", new Livro("A Revolução dos Bichos", "George Orwell", 7.05d));

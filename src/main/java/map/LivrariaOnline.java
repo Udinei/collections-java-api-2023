@@ -25,18 +25,36 @@ public class LivrariaOnline {
     public void exibirLivros(){
         Map<String, Livro> livrosOrdenados = new TreeMap<>(livrosMap);
         System.out.println(livrosOrdenados);
-    }
-
-    public Map<String, Livro>  exibirLivrosOrdenadosPorPreco1(){
-          return new TreeMap<>(livrosMap);
 
     }
 
-    public Map<String, Livro> exibirLivrosOrdenadosPorPreco() {
-        Map<String, Livro> livrosOrdenados = new TreeMap<>(livrosMap);
-        return livrosOrdenados;
+
+
+    /*public void exibirLivrosOrdenadosPorPreco() {
+        TreeMap<Livro, Object> livrosOrdenados = new TreeMap<>();
+        System.out.println(livrosOrdenados);
+
+    }*/
+
+    public void exibirLivrosOrdenadosPorPreco() {
+        TreeMap<Double, Livro> livrosOrdenados = new TreeMap<>(new Comparator<Double>() {
+            @Override
+            public int compare(Double preco1, Double preco2) {
+                return Double.compare(preco1, preco2);
+            }
+        });
+
+        System.out.println(livrosOrdenados.entrySet());
+        for (var entry : livrosMap.entrySet()) {
+            Livro livro = entry.getValue();
+            double preco = livro.getPreco();
+            livrosOrdenados.put(preco, entry.getValue());
+        }
+
+        System.out.println(livrosOrdenados);
 
     }
+
 
     public Map<String, Livro> pesquisarLivrosPorAutor(String autor){
         Map<String, Livro> pesquisaAutor = new HashMap<>();
@@ -83,15 +101,19 @@ public class LivrariaOnline {
         lo.adicionarLivro("https://amzn.to/3L1FFI6",  "A testa para o nao ser,", "Juca pirama", 5.0);
         lo.adicionarLivro("https://amzn.to/3OYb9jk",  "Sendo", "Juca pirama", 10.0);
 
-     //   lo.exibirLivros();
+      //   lo.exibirLivros();
       //  lo.removerLivro("Sendo");
       //  lo.exibirLivros();
       //  System.out.println("Ordenados por preço " + lo.exibirLivrosOrdenadosPorPreco());
-        System.out.println(lo.exibirLivrosOrdenadosPorPreco());
+        lo.exibirLivrosOrdenadosPorPreco();
        /* System.out.println("Pesquisa por autor " + lo.pesquisarLivrosPorAutor("Juca pirama"));
         System.out.println("Livros mais caros " + lo.obterLivroMaisCaro());
 
         System.out.println("Livros mais baratos " + lo.obterLivroMaisBarato());*/
 
+       // extracted();
+
     }
+
+
 }
